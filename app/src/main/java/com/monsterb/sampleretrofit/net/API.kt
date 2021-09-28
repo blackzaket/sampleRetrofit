@@ -18,5 +18,9 @@ interface API {
     //form data
     @POST("post")
     @FormUrlEncoded
-    fun sendMsgWithHeader(@Header("Content-type") type:String, @Field("age")age:Int, @Field("name")name:String ): Call<APIResult>
+    fun sendMsgWithHeaderFormData(@Header("Content-type") type:String, @Field("age")age:Int, @Field("name")name:String ): Call<APIResult>
+
+    //form data
+    @POST("post")
+    fun sendMsgWithHeaderJsonData(@Header("Content-type") type:String, @Body json: JSONDATA ): Call<APIResult>
 }

@@ -2,6 +2,7 @@ package com.monsterb.sampleretrofit.net
 
 class APIResult {
     var form:APIResultData? = null
+    var json:APIResultData? = null
 }
 
 class APIResultData {
