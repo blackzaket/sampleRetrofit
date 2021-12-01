@@ -23,4 +23,25 @@ interface API {
     //form data
     @POST("post")
     fun sendMsgWithHeaderJsonData(@Header("Content-type") type:String, @Body json: JSONDATA ): Call<APIResult>
+
+
+    @GET("App/json/{page}.json")
+    fun getList(
+        @Path("page") page: String
+    ): Call<AcommodationListResponse>
+
 }
+
+data class AcommodationListResponse(val msg: String, val code: String , val data: AcommodationPageInfo)
+
+data class AcommodationPageInfo(val totalCount: Int, val product: ArrayList<AcommodationInfo>)
+
+data class AcommodationInfo(
+    val id: Int,
+    val name: String,
+    val thumbnail: String,
+    val description: AcommodationDesc,
+    val rate: Float
+)
+
+data class AcommodationDesc (val imagePath:String, val subject:String, val price : Long)

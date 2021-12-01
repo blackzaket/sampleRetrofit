@@ -9,7 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
     private var retrofit: Retrofit? = null
-    private const val BASE_URL = "https://httpbin.org/"
+//    private const val BASE_URL = "https://httpbin.org/"
+    private const val BASE_URL = "https://www.gccompany.co.kr/"
     const val SERVER_KEY = ""
 
 

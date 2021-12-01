@@ -1,9 +1,6 @@
 package com.monsterb.sampleretrofit
 
-import com.monsterb.sampleretrofit.net.API
-import com.monsterb.sampleretrofit.net.APIResult
-import com.monsterb.sampleretrofit.net.JSONDATA
-import com.monsterb.sampleretrofit.net.RetrofitBuilder
+import com.monsterb.sampleretrofit.net.*
 import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Test
@@ -37,6 +34,45 @@ class ExampleUnitTest {
 
                 }
             }
+
+        } catch (exception: Exception) {
+            print(exception.message)
+        }
+
+
+    }
+
+
+    @Test
+    fun apiTestGet() {
+
+        val age = 10
+        val name = "kkk"
+//        val call: AcommodationListResponse =
+//            RetrofitBuilder.getInstance()!!.create(API::class.java)
+//                .getList("1")
+
+        try {
+            val call: Call<AcommodationListResponse> =
+                RetrofitBuilder.getInstance()!!.create(API::class.java)
+                    .getList("1")
+            val response =  call.execute()
+            val body = response.body()
+            body?.let {
+                println(body.data)
+            }
+//
+//            val response = call.execute()
+//            val responseData: APIResult? = response.body()
+//
+//            responseData?.let { responseD ->
+//                responseD.form?.let { form ->
+//                    form.name?.let { it ->
+//                        assertEquals("kkk", it)
+//                    }
+//
+//                }
+//            }
 
         } catch (exception: Exception) {
             print(exception.message)
